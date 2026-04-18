@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Do List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 My To-Do List</h1>
+            <p class="tagline">Stay organized and productive</p>
+        </header>
+
+        <main>
+            <!-- Add Todo Form -->
+            <section class="add-todo-section">
+                <h2>Add New Task</h2>
+                <form id="todoForm" class="form-group">
+                    <div class="form-row">
+                        <input 
+                            type="text" 
+                            id="todoTitle" 
+                            placeholder="Enter task title..." 
+                            required
+                        >
+                    </div>
+                    <div class="form-row">
+                        <textarea 
+                            id="todoDescription" 
+                            placeholder="Enter task description (optional)..."
+                        ></textarea>
+                    </div>
+                    <div class="form-row">
+                        <input 
+                            type="date" 
+                            id="todoDueDate"
+                        >
+                        <button type="submit" class="btn btn-primary">Add Task</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <h3 id="totalTodos">0</h3>
+                    <p>Total Tasks</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="completedTodos">0</h3>
+                    <p>Completed</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="pendingTodos">0</h3>
+                    <p>Pending</p>
+                </div>
+            </section>
+
+            <!-- Filter Buttons -->
+            <section class="filter-section">
+                <button class="filter-btn active" data-filter="all">All Tasks</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </section>
+
+            <!-- Todo List -->
+            <section class="todo-list-section">
+                <h2>Tasks</h2>
+                <div id="todoList" class="todo-list">
+                    <!-- Todos will be inserted here -->
+                </div>
+                <div id="emptyMessage" class="empty-message">
+                    <p>No tasks yet. Add one to get started! 🚀</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 My To-Do List | Built with Flask & HTML</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
